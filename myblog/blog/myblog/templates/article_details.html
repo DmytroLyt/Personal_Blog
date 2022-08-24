@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block title %}{{ post.title_tag }}{% endblock %}
 
 
@@ -18,6 +20,10 @@
 </small><br/>
 <hr>
 <br/>
+{% if post.header_image %}
+<img src="{{ post.header_image.url }}" width=600 height=300>
+{% endif %}
+<br/><br/>
 {{ post.body|safe }}
 
 
@@ -43,4 +49,56 @@
         | {{ total_likes }}
         Likes
     </form>
+
+<br/><br/>
+
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-2">
+{% if post.author.user_profile.profile_pic %}
+      <img src="{{ post.author.user_profile.profile_pic.url }}" class="img-fluid rounded-start">
+
+{% else %}
+        <img src="{% static 'theblog/images/th.jpg' %}" class="img-fluid rounded-start">
+
+{% endif %}
+    </div>
+    <div class="col-md-10">
+      <div class="card-body">
+        <h5 class="card-title">
+            {{ post.author.first_name }}
+            {{ post.author.last_name }}
+        </h5>
+          <p class="small text-muted">
+              <a href="{% url 'profile_page' post.author.user_profile.id %}">Profile Page</a>
+
+              {% if post.author.user_profile.website_url %}
+               | <a href="{{ post.author.user_profile.website_url }}"> Website</a>
+              {% endif %}
+
+              {% if post.author.user_profile.facebook_url %}
+                | <a href="{{ post.author.user_profile.facebook_url }}">Facebook</a>
+              {% endif %}
+
+              {% if post.author.user_profile.instagram_url %}
+                | <a href="{{ post.author.user_profile.instagram_url }}">Instagram</a>
+              {% endif %}
+
+              {% if post.author.user_profile.github_url %}
+                | <a href="{{ post.author.user_profile.github_url }}">GitHub</a>
+              {% endif %}
+
+              {% if post.author.user_profile.linkedin_url %}
+                | <a href="{{ post.author.user_profile.linkedin_url }}">LinkedIn</a>
+              {% endif %}
+
+          </p>
+        <p class="card-text">
+            {{ post.author.user_profile.bio }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}}
