@@ -5,6 +5,7 @@ from .forms import PostForm, EditForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
+
 # def home(request):
 #    return render(request, 'home.html', {})
 
