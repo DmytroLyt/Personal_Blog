@@ -3,14 +3,20 @@
 {% block content %}
 
 
-<h1>Edit Profile</h1>
+<h1>Edit Settings</h1>
 <br/><br/>
+
+{{ user.user_profile.bio }}
+
+
+<br/><br/>
+
 <div class="form-group">
-<form method="Post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-secondary">Update Profile</button>
-</form>
+    <form method="Post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Update Profile</button>
+    </form>
 </div>
 
 
