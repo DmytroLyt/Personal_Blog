@@ -12,7 +12,7 @@ In this Blog you can :
 - Create an account
 - Create a user page:
   - Upload your photo of profile 
-  - Add social media such as (LinkedIn, Instagram, Facebook, Your WebSite)
+  - Add social media such as (LinkedIn, Instagram, Facebook, Your WebSite, GitHub)
   - Add account info about yourself
 - Create a Post
 - Create a Post Category
